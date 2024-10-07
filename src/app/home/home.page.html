@@ -1,20 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      VALIDAR DOMÍNIO
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-input label-placement="floating" fill="solid" label="Domínio" [(ngModel)]="dominio"
+      placeholder="Insira seu domínio">
+    </ion-input>
+    <ion-button expand="block" (click)="validar()">Verificar</ion-button>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="testevalidacao">
+    <h2>Informações do domínio:</h2>
+    <ion-card>
+      <ion-card-content>
+        <p>Status: {{ infos.status }}</p>
+        <p>FQDN: {{ infos.fqdn }}</p>
+        <p>Hosts: {{ infos.hosts }}</p>
+        <p *ngIf="infos['expires-at']">Expira em: {{ infos['expires-at'] }}</p>
+        <p>Sugestões: {{ infos.suggestions }}</p>
+      </ion-card-content>
+    </ion-card>
   </div>
+
+  <ion-button expand="block" class="page2" color="success" (click)="DirectionPage2()">Comprar domínio</ion-button>
+  <ion-button expand="block" class="page3" color="danger" (click)="DirectionPage3()">Comprar Hospedagem</ion-button>
 </ion-content>

@@ -1,0 +1,23 @@
+ion-toolbar > ion-img{
+    width: 100px;
+}
+ion-toolbar > ion-icon{
+    width: 40px;
+    font-size: 20px;
+}
+
+ion-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-item > ion-img{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+ion-item{
+    display: flex;
+    justify-content: center;
+}
